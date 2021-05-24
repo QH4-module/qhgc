@@ -16,8 +16,6 @@
 namespace qh4module\qhgc\models\antd;
 
 
-use qh4module\qhgc\models\GenerateTool;
-
 class GenerateRoute
 {
     public $ui_dictionary;
@@ -33,7 +31,6 @@ class GenerateRoute
         $route = [
             'path' => '/' . strtolower($this->ui_dictionary),
             'name' => '新增的菜单',
-            'component' => '@/layouts/BasicLayout',
             'routes' => []
         ];
         $route['routes'][] = $this->getItem($this->ui_list_file);
@@ -42,27 +39,6 @@ class GenerateRoute
         $route['routes'][] = $this->getItem($this->ui_detail_file);
 
         return $this->format($route);
-
-//        $temp = "{
-//  path:'{{root_path}}',
-//  name:'新增的菜单',
-//  component: '@/layouts/BasicLayout',
-//  routes:[
-//{{routes_item}}
-//  ]
-//},";
-//
-//        $str_item = '';
-//
-//        $str_item .= $this->getItem($this->ui_list_file);
-//        $str_item .= $this->getItem($this->ui_create_file);
-//        $str_item .= $this->getItem($this->ui_update_file);
-//        $str_item .= $this->getItem($this->ui_detail_file);
-//
-//        return GenerateTool::loadTemplate($temp, [
-//            'root_path'=>strtolower($this->ui_dictionary),
-//            'routes_item'=>$str_item,
-//        ]);
     }
 
 
@@ -112,24 +88,5 @@ class GenerateRoute
         }
 
         return $ary;
-
-//
-//        $temp_item = "    {
-//      path: '{{path}}',
-//      component: '{{component}}',
-//      name: '{{name}}',
-//      icon: '{{icon}}',
-//      hideInMenu: {{hide_menu}}
-//    },
-//";
-//
-//        return GenerateTool::loadTemplate($temp_item, [
-//            'path' => (isset($file['path']) && $file['path']) ? $file['path'] : '',
-//            'component' => (isset($file['component']) && $file['component']) ? $file['component'] : '',
-//            'name' => (isset($file['name']) && $file['name']) ? $file['name'] : '',
-//            'icon' => (isset($file['icon']) && $file['icon']) ? $file['icon'] : '',
-//            'hide_menu' => (isset($file['hideInMenu']) && $file['hideInMenu']) ? 'true' : 'false',
-//        ]);
-
     }
 }

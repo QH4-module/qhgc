@@ -4,7 +4,6 @@
  */
 import React from "react";
 import {Button, Form, Input, Space} from "antd";
-import "@/common/qh4-form.less";
 
 const layout = {
   labelCol: {span: 8},
@@ -23,12 +22,12 @@ const noLabelLayout = {
 const EditForm = (props) => {
   return (
     <Form
-      className="qh4-basic-form"
+      style={{marginTop:16}}
       {...layout}
       form={props.form}
       onFinish={props.onFinish}
     >
-      {{form_item}}
+{{form_item}}
       <Form.Item {...noLabelLayout}>
         <Space size="middle">
           <Button type="primary" htmlType="submit">

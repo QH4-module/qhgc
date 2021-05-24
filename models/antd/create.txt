@@ -24,6 +24,7 @@ const Index = () => {
     <PageContainer>
       <Card bordered={false}>
         <EditForm
+          isCreate
           form={form}
           onFinish={onFinish}
         />

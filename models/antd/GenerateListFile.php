@@ -37,7 +37,7 @@ class GenerateListFile
             'primary' => $primary,
             'default_columns' => $this->getDefaultColumns(),
             'rand' => StringHelper::random(6),
-            'search_form_item' => $this->getSearchFormItem(),
+//            'search_form_item' => $this->getSearchFormItem(),
             'import' => GenerateTool::formatImport($this->import),
         ]);
 
@@ -117,13 +117,10 @@ class GenerateListFile
       title: '{{title}}',
       dataIndex: '{{name}}',
       key: '{{name}}',{{sortable}}
-      width: 200,{{remark}}
+      width: 200,
+      // hideInSearch: true,
     },
 ";
-
-        $temp_remark = "
-      // 默认不显示
-      // _display: false,";
 
         $temp_sort = "
       sorter: {multiple: 1},";
@@ -137,7 +134,6 @@ class GenerateListFile
                 'name' => $col['COLUMN_NAME'],
             ];
             $ary['sortable'] = $col['sortable'] ? $temp_sort : '';
-            $ary['remark'] = $index === 0 ? $temp_remark : '';
             $str .= GenerateTool::loadTemplate($temp, $ary);
         }
 

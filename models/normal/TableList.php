@@ -29,32 +29,18 @@ use qttx\web\ServiceModel;
 class TableList extends ServiceModel
 {
     /**
-     * @var int 页数,从1开始
-     */
-    public $page = 1;
-
-    /**
-     * @var int 每页显示数量
-     */
-    public $limit = 10;
-
-    /**
      * @inheritDoc
      */
     public function run()
     {
         $name = $this->external->databaseName();
-        $start = ($this->page - 1) * $this->limit;
         $db = $this->external->getDb();
 
         $db->calcFoundRows();
-        $sql = $db->select('*')
+        $result = $db->select('*')
             ->from('information_schema.TABLES')
             ->where('table_schema= :ts')
-            ->bindValue('ts', $name);
-
-        $result = $sql->offset($start)
-            ->limit($this->limit)
+            ->bindValue('ts', $name)
             ->query();
 
         foreach ($result as &$item) {

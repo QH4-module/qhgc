@@ -54,7 +54,7 @@ class GenerateDetailModelFile
             'model_classname' => GenerateTool::fullClass2Single($this->model_classname),
             'table_name' => $this->table_name,
             'primary' => $primary,
-            'all_field' => GenerateIndexModelFile::getAllField($this->columns, $alias),
+            'all_field' => GenerateIndexModelFile::getAllField($this->columns, $alias,false),
             'use_class' => GenerateTool::formatUseClass($this->use_class),
         ]);
 

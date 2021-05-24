@@ -20,8 +20,8 @@ use qttx\validators\Validator;
 
 /**
  * Class SorterValidator
+ * @package qh4module\qhgc
  * 排序规则校验器
- * @package service\qh_generate_code
  */
 class SorterValidator extends Validator
 {

@@ -7,7 +7,7 @@ import {PageContainer} from "@ant-design/pro-layout";
 import {Card, Menu, Descriptions, Dropdown, Modal, message} from "antd";
 import {history} from 'umi';
 import YunReact from "@/utils/YunReact";
-import api from "@/pages/rabc/Users/service/api";
+import api from "./service/api";
 import {DownOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 
 /**
@@ -55,20 +55,23 @@ const Index = (props) => {
     </Menu>
   );
 
-
   return (
     <PageContainer>
-      <Card bordered={false}>
-        <Descriptions
-          title="详细信息"
-          layout="vertical"
-          column={{md: 2, xl: 3, xxl: 4}}
-          labelStyle={{color: '#999999'}}
-          extra={<Dropdown overlay={menu}>
+      <Card
+        bordered={false}
+        title="详细信息"
+        extra={
+          <Dropdown overlay={menu}>
             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
               操作 <DownOutlined/>
             </a>
-          </Dropdown>}
+          </Dropdown>
+        }
+      >
+        <Descriptions
+          layout="vertical"
+          column={{md: 2, xl: 3, xxl: 4}}
+          labelStyle={{color: '#999999'}}
         >{{desc_item}}
         </Descriptions>
       </Card>

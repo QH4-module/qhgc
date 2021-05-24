@@ -171,11 +171,11 @@ class {{classname}} extends {{model_classname}}
 ';
     }
 
-    public static function getAllField($columns, $alias)
+    public static function getAllField($columns, $alias, $only_list = true)
     {
         $ary = [];
         foreach ($columns as $item) {
-            if (!$item['show_list']) {
+            if (!$item['show_list'] && $only_list) {
                 continue;
             }
             if ($alias) {

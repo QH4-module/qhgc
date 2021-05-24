@@ -85,9 +85,9 @@ class GenerateCurdFile extends ServiceModel
             $this->addError('namespace', $ret);
             return false;
         }
-//        $service_paths = $this->mkdirService($path);
-//
-//        $this->generateService($service_paths);
+
+        $service_paths = $this->mkdirService($path);
+        $this->generateService($service_paths);
 
         return $this->generateReact();
     }

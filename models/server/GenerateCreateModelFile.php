@@ -211,7 +211,9 @@ class {{classname}} extends {{model_classname}}
     {
 
         if (in_array($col['COLUMN_NAME'], $this->external->defaultUserIdField())) {
-            $this->use_class[] = 'qh4module\token\TokenFilter';
+            if (!in_array('qh4module\token\TokenFilter', $this->use_class)) {
+                $this->use_class[] = 'qh4module\token\TokenFilter';
+            }
             return 'TokenFilter::getPayload(\'user_id\')';
         }else if (in_array($col['COLUMN_NAME'], $this->external->defaultTimestampField())) {
             return 'time()';
