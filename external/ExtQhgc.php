@@ -1,6 +1,6 @@
 <?php
 /**
- * File Name: ExtQgc.php
+ * File Name: ExtQHGC.php
  * ©2020 All right reserved Qiaotongtianxia Network Technology Co., Ltd.
  * @author: hyunsu
  * @date: 2021/4/1 5:42 下午
